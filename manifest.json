@@ -8,10 +8,12 @@
     "scripting",
     "storage",
     "https://*.cnki.net/*",
+    "https://webvpn-w1.gcu.edu.cn/*",
     "https://gitee.com/*"
   ],
   "host_permissions": [
     "https://*.cnki.net/*",
+    "https://webvpn-w1.gcu.edu.cn/*",
     "https://gitee.com/*"
   ],
   "background": {
@@ -19,7 +21,10 @@
   },
   "content_scripts": [
       {
-          "matches": ["*://*.cnki.net/*"],
+          "matches": [
+              "*://*.cnki.net/*",
+              "https://webvpn-w1.gcu.edu.cn/*"
+          ],
           "js": ["content.js"],
           "css": ["content.css"]
       }

@@ -1,7 +1,18 @@
+const EXTRA_SUPPORTED_HOSTS = ["webvpn-w1.gcu.edu.cn"];
+
+function isSupportedCnkiHost() {
+  const host = window.location.hostname.toLowerCase();
+  return (
+    host === "cnki.net" ||
+    host.endsWith(".cnki.net") ||
+    EXTRA_SUPPORTED_HOSTS.includes(host)
+  );
+}
+
 // 等待页面加载完成
 // 在DOMContentLoaded事件中添加表格样式调整
 document.addEventListener("DOMContentLoaded", function () {
-  if (window.location.hostname.includes("cnki.net")) {
+  if (isSupportedCnkiHost()) {
     // 添加表格左对齐样式
     const style = document.createElement("style");
     style.textContent = `
